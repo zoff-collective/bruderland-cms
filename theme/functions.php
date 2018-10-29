@@ -23,5 +23,6 @@ function bruderland_register_post_types() {
 }
 
 add_action('init', 'bruderland_register_post_types');
+add_theme_support('post-thumbnails'); 
 
 ?>

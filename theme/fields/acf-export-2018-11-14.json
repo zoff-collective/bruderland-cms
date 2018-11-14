@@ -1,132 +1,7 @@
 [
     {
-        "key": "group_5bcdf2ef63072",
-        "title": "Einleitung",
-        "fields": [
-            {
-                "key": "field_5bcdf2f3bf29f",
-                "label": "Nummer",
-                "name": "number",
-                "type": "number",
-                "instructions": "",
-                "required": 1,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "placeholder": "",
-                "prepend": "",
-                "append": "",
-                "min": "",
-                "max": "",
-                "step": ""
-            },
-            {
-                "key": "field_5bcdf30abf2a0",
-                "label": "Thema",
-                "name": "topic",
-                "type": "text",
-                "instructions": "",
-                "required": 1,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "placeholder": "",
-                "prepend": "",
-                "append": "",
-                "maxlength": ""
-            },
-            {
-                "key": "field_5bcdf314bf2a1",
-                "label": "Zitat",
-                "name": "quote",
-                "type": "textarea",
-                "instructions": "",
-                "required": 1,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "placeholder": "",
-                "maxlength": "",
-                "rows": "",
-                "new_lines": ""
-            },
-            {
-                "key": "field_5be43f250df4f",
-                "label": "Hintergrund-Bild",
-                "name": "backgroundImage",
-                "type": "image",
-                "instructions": "",
-                "required": 1,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "return_format": "array",
-                "preview_size": "full",
-                "library": "all",
-                "min_width": 1280,
-                "min_height": 800,
-                "min_size": "",
-                "max_width": "",
-                "max_height": "",
-                "max_size": "",
-                "mime_types": ""
-            },
-            {
-                "key": "field_5bd85177fb9e2",
-                "label": "Einleitungs-Text",
-                "name": "text",
-                "type": "textarea",
-                "instructions": "",
-                "required": 1,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "placeholder": "",
-                "maxlength": "",
-                "rows": "",
-                "new_lines": ""
-            }
-        ],
-        "location": [
-            [
-                {
-                    "param": "post_type",
-                    "operator": "==",
-                    "value": "episodes"
-                }
-            ]
-        ],
-        "menu_order": 0,
-        "position": "acf_after_title",
-        "style": "default",
-        "label_placement": "top",
-        "instruction_placement": "label",
-        "hide_on_screen": "",
-        "active": 1,
-        "description": ""
-    },
-    {
         "key": "group_5bcdef0ad2b05",
-        "title": "Module",
+        "title": "Blöcke",
         "fields": [
             {
                 "key": "field_5bcdef0ebe055",
@@ -134,7 +9,7 @@
                 "name": "content",
                 "type": "flexible_content",
                 "instructions": "",
-                "required": 0,
+                "required": 1,
                 "conditional_logic": 0,
                 "wrapper": {
                     "width": "",
@@ -218,7 +93,7 @@
                             {
                                 "key": "field_5bebdeec8baca",
                                 "label": "Fußnoten",
-                                "name": "footnotes",
+                                "name": "footnotesRepeat",
                                 "type": "repeater",
                                 "instructions": "Um auf eine Fußnote im Text zu verweisen, bitte die Notation #{Nummer der Fußnote} (bspw. #1) verwenden.",
                                 "required": 0,
@@ -231,7 +106,7 @@
                                 "collapsed": "",
                                 "min": 0,
                                 "max": 0,
-                                "layout": "table",
+                                "layout": "row",
                                 "button_label": "Fußnote hinzufügen",
                                 "sub_fields": [
                                     {
@@ -284,7 +159,7 @@
                         "key": "layout_5bd7067494b92",
                         "name": "imageTextCombination",
                         "label": "Bild\/ Text Kombination",
-                        "display": "row",
+                        "display": "block",
                         "sub_fields": [
                             {
                                 "key": "field_5bd7068394b93",
@@ -488,6 +363,33 @@
                                 "maxlength": "",
                                 "rows": "",
                                 "new_lines": ""
+                            },
+                            {
+                                "key": "field_5bec781474dff",
+                                "label": "Seitenverhältnis",
+                                "name": "aspectRatio",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "16-9": "16 zu 9",
+                                    "4-3": "4 zu 3"
+                                },
+                                "default_value": [
+                                    "16-9"
+                                ],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 0,
+                                "return_format": "value",
+                                "ajax": 0,
+                                "placeholder": ""
                             }
                         ],
                         "min": "",
@@ -588,6 +490,131 @@
         "menu_order": 0,
         "position": "normal",
         "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_5bcdf2ef63072",
+        "title": "Einleitung",
+        "fields": [
+            {
+                "key": "field_5bcdf2f3bf29f",
+                "label": "Nummer",
+                "name": "number",
+                "type": "number",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": "",
+                "max": "",
+                "step": ""
+            },
+            {
+                "key": "field_5bcdf30abf2a0",
+                "label": "Thema",
+                "name": "topic",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5bcdf314bf2a1",
+                "label": "Zitat",
+                "name": "quote",
+                "type": "textarea",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": "",
+                "new_lines": ""
+            },
+            {
+                "key": "field_5be43f250df4f",
+                "label": "Hintergrund-Bild",
+                "name": "backgroundImage",
+                "type": "image",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "preview_size": "full",
+                "library": "all",
+                "min_width": 1280,
+                "min_height": 800,
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_5bd85177fb9e2",
+                "label": "Einleitungs-Text",
+                "name": "text",
+                "type": "textarea",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": "",
+                "new_lines": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "episodes"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "acf_after_title",
+        "style": "default",
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",

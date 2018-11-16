@@ -34,7 +34,30 @@ function cleanup_admin() {
   remove_menu_page('upload.php');
 }
 
+// Register custom toolbars
+function acf_toolbar($toolbars) {
+  $toolbars['Richtext'] = array();
+  $toolbars['Richtext'][1] = array('formatselect', 'bold' , 'italic' , 'underline', 'link', 'undo', 'redo');
+
+  unset($toolbars['Basic']);
+
+  $toolbars['Basic'] = array();
+  $toolbars['Basic'][1] = array('bold' , 'italic' , 'underline', 'link', 'undo', 'redo');
+
+  return $toolbars;
+}
+
+// Reduce formatselect to viable options
+function tinymce_formatselect($settings) {
+  $settings['block_formats'] = 'Absatz=p;Überschrift(1)=h2;Überschrift(2)=h3';
+
+  return $settings;
+}
+
 add_theme_support('post-thumbnails');
+
+add_filter('acf/fields/wysiwyg/toolbars' , 'acf_toolbar');
+add_filter('tiny_mce_before_init', 'tinymce_formatselect');
 
 add_action('init', 'bruderland_register_post_types');
 add_action('save_post', 'trigger_netlify_deploy');

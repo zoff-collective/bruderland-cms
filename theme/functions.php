@@ -54,8 +54,6 @@ function tinymce_formatselect($settings) {
   return $settings;
 }
 
-add_theme_support('post-thumbnails');
-
 add_filter('acf/fields/wysiwyg/toolbars' , 'acf_toolbar');
 add_filter('tiny_mce_before_init', 'tinymce_formatselect');
 

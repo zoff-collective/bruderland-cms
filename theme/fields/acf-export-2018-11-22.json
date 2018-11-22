@@ -413,7 +413,7 @@
                             {
                                 "key": "field_5bf6cc4314dbd",
                                 "label": "Endlosschleife",
-                                "name": "endlessLoop",
+                                "name": "loop",
                                 "type": "true_false",
                                 "instructions": "Am Ende des Videos automatisch wieder am Anfang beginnen (solange das Video im Viewport des\/ der User*in ist).",
                                 "required": 0,
@@ -509,6 +509,59 @@
                         ],
                         "min": "",
                         "max": ""
+                    },
+                    "layout_5bf6d0a09d05a": {
+                        "key": "layout_5bf6d0a09d05a",
+                        "name": "illustration",
+                        "label": "Illustration",
+                        "display": "row",
+                        "sub_fields": [
+                            {
+                                "key": "field_5bf6d0a89d05b",
+                                "label": "Bild",
+                                "name": "image",
+                                "type": "image",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "array",
+                                "preview_size": "full",
+                                "library": "all",
+                                "min_width": 1280,
+                                "min_height": 800,
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": ""
+                            },
+                            {
+                                "key": "field_5bf6d0c49d05c",
+                                "label": "Audio-Spur",
+                                "name": "audio",
+                                "type": "file",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "array",
+                                "library": "all",
+                                "min_size": "",
+                                "max_size": "",
+                                "mime_types": "mp3,ogg"
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
                     }
                 },
                 "button_label": "Block hinzufügen",
@@ -522,6 +575,27 @@
                     "param": "post_type",
                     "operator": "==",
                     "value": "episodes"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "protagonists"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "countries"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
                 }
             ]
         ],
@@ -565,7 +639,7 @@
                 "name": "topic",
                 "type": "text",
                 "instructions": "",
-                "required": 1,
+                "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
                     "width": "",
@@ -737,6 +811,51 @@
         ],
         "menu_order": 0,
         "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_5bf6ce7d87f1d",
+        "title": "Zuordnung einer Episode",
+        "fields": [
+            {
+                "key": "field_5bf6ce8702c1d",
+                "label": "Episode",
+                "name": "episode",
+                "type": "post_object",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "episodes"
+                ],
+                "taxonomy": "",
+                "allow_null": 0,
+                "multiple": 0,
+                "return_format": "object",
+                "ui": 1
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "acf_after_title",
         "style": "default",
         "label_placement": "top",
         "instruction_placement": "label",

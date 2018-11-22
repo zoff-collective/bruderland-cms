@@ -90,11 +90,16 @@ function tinymce_formatselect($settings) {
   return $settings;
 }
 
+function remove_page_editor_support() {
+  remove_post_type_support('page', 'editor');
+}
+
 add_filter('acf/fields/wysiwyg/toolbars' , 'acf_toolbar');
 add_filter('tiny_mce_before_init', 'tinymce_formatselect');
 
 add_action('init', 'bruderland_register_post_types');
 add_action('save_post', 'trigger_netlify_deploy');
 add_action('admin_menu','cleanup_admin');
+add_action('admin_head', 'remove_page_editor_support');
 
 ?>

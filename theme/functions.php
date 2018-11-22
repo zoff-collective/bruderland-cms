@@ -13,6 +13,7 @@ function bruderland_register_post_types() {
           'slug' => 'episodes'
         ),
         'show_in_rest' => true,
+        'menu_icon' => 'dashicons-images-alt',
         'supports' => array(
           'title',
           'thumbnail',
@@ -33,6 +34,7 @@ function bruderland_register_post_types() {
           'slug' => 'protagonists'
         ),
         'show_in_rest' => true,
+        'menu_icon' => 'dashicons-admin-users',
         'supports' => array(
           'title',
           'revisions',
@@ -52,6 +54,7 @@ function bruderland_register_post_types() {
           'slug' => 'country'
         ),
         'show_in_rest' => true,
+        'menu_icon' => 'dashicons-admin-site',
         'supports' => array(
           'title',
           'revisions',

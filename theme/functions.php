@@ -4,7 +4,7 @@ function bruderland_register_post_types() {
   register_post_type('episodes',
     array(
       'labels' => array(
-        'name' => 'Episodes',
+        'name' => 'Episoden',
         'singular_name' => 'Episode'
         ),
         'public' => true,
@@ -16,6 +16,44 @@ function bruderland_register_post_types() {
         'supports' => array(
           'title',
           'thumbnail',
+          'revisions',
+        )
+    )
+  );
+
+  register_post_type('protagonists',
+    array(
+      'labels' => array(
+        'name' => 'Protagonist*innen',
+        'singular_name' => 'Protagonist*in'
+        ),
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => array(
+          'slug' => 'protagonists'
+        ),
+        'show_in_rest' => true,
+        'supports' => array(
+          'title',
+          'revisions',
+        )
+    )
+  );
+
+  register_post_type('countries',
+    array(
+      'labels' => array(
+        'name' => 'Länder',
+        'singular_name' => 'Land'
+        ),
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => array(
+          'slug' => 'country'
+        ),
+        'show_in_rest' => true,
+        'supports' => array(
+          'title',
           'revisions',
         )
     )

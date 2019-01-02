@@ -1,5 +1,7 @@
 <?php
 
+$PRODUCTION_URL = 'https://develop--bruderland.netlify.com/';
+
 function bruderland_register_post_types() {
   register_post_type('episodes',
     array(
@@ -97,6 +99,28 @@ function remove_page_editor_support() {
   remove_post_type_support('page', 'editor');
 }
 
+function custom_visit_site_url($wp_admin_bar) {
+  global $PRODUCTION_URL;
+
+  // Get a reference to the view-site node to modify.
+  $node = $wp_admin_bar->get_node('view-site');
+
+  $node->meta['target'] = '_blank';
+  $node->meta['rel'] = 'noopener noreferrer';
+  $node->href = $PRODUCTION_URL;
+
+  $wp_admin_bar->add_node($node);
+
+  // Site name node
+  $node = $wp_admin_bar->get_node('site-name');
+
+  $node->meta['target'] = '_blank';
+  $node->meta['rel'] = 'noopener noreferrer';
+  $node->href = $PRODUCTION_URL;
+
+  $wp_admin_bar->add_node($node);
+}
+
 add_filter('acf/fields/wysiwyg/toolbars' , 'acf_toolbar');
 add_filter('tiny_mce_before_init', 'tinymce_formatselect');
 
@@ -104,5 +128,6 @@ add_action('init', 'bruderland_register_post_types');
 add_action('save_post', 'trigger_netlify_deploy');
 add_action('admin_menu','cleanup_admin');
 add_action('admin_head', 'remove_page_editor_support');
+add_action('admin_bar_menu', 'custom_visit_site_url', 80);
 
 ?>

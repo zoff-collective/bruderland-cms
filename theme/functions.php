@@ -78,12 +78,12 @@ function cleanup_admin() {
 // Register custom toolbars
 function acf_toolbar($toolbars) {
   $toolbars['Richtext'] = array();
-  $toolbars['Richtext'][1] = array('formatselect', 'bold' , 'italic' , 'underline', 'link', 'undo', 'redo');
+  $toolbars['Richtext'][1] = array('formatselect', 'link', 'undo', 'redo');
 
   unset($toolbars['Basic']);
 
   $toolbars['Basic'] = array();
-  $toolbars['Basic'][1] = array('bold' , 'italic' , 'underline', 'link', 'undo', 'redo');
+  $toolbars['Basic'][1] = array('link', 'undo', 'redo');
 
   return $toolbars;
 }

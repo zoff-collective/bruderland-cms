@@ -127,6 +127,10 @@ function update_post_links($permalink, $post) {
   if(get_post_type($post) == 'episodes') {
     $permalink = home_url('/episodes/'.$post->post_name);
   }
+  
+  if(get_post_type($post) == 'protagonists') {
+    $permalink = home_url('/protagonists/'.$post->post_name);
+  }
 
   return $permalink;
 }

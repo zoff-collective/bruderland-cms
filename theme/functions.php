@@ -127,12 +127,22 @@ function update_post_links($permalink, $post) {
   if(get_post_type($post) == 'episodes') {
     $permalink = home_url('/episodes/'.$post->post_name);
   }
-  
+
   if(get_post_type($post) == 'protagonists') {
     $permalink = home_url('/protagonists/'.$post->post_name);
   }
 
   return $permalink;
+}
+
+if( function_exists('acf_add_options_page') ) {
+  acf_add_options_page(array(
+    'page_title' 	=> 'Theme General Settings',
+    'menu_title'	=> 'Theme Settings',
+    'menu_slug' 	=> 'theme-general-settings',
+    'capability'	=> 'edit_posts',
+    'redirect'		=> false
+  ));
 }
 
 add_filter('acf/fields/wysiwyg/toolbars' , 'acf_toolbar');

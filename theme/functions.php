@@ -135,6 +135,21 @@ function update_post_links($permalink, $post) {
   return $permalink;
 }
 
+function exclude_episodes_from_admin($query) {
+  if (!is_admin()) {
+    return $query;
+  }
+
+  global $pagenow, $post_type;
+
+  $current_user = wp_get_current_user();
+
+  // hide the debugging episode for everyone but myself
+  if ($current_user->user_login != 'gustav' && $pagenow == 'edit.php' && $post_type == 'episodes') {
+    $query-> query_vars['post__not_in'] = array(216);
+  }
+}
+
 if( function_exists('acf_add_options_page') ) {
   acf_add_options_page(array(
     'page_title' 	=> 'Theme General Settings',
@@ -154,5 +169,6 @@ add_action('admin_menu','cleanup_admin');
 add_action('admin_head', 'remove_page_editor_support');
 add_action('admin_bar_menu', 'custom_visit_site_url', 80);
 add_filter('post_type_link', 'update_post_links', 10, 2) ;
+add_filter('parse_query', 'exclude_episodes_from_admin');
 
 ?>

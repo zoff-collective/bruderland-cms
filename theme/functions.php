@@ -63,6 +63,26 @@ function bruderland_register_post_types() {
         )
     )
   );
+
+  register_post_type('background',
+    array(
+      'labels' => array(
+        'name' => 'Hintergrund',
+        'singular_name' => 'Hintergrund'
+        ),
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => array(
+          'slug' => 'background'
+        ),
+        'show_in_rest' => true,
+        'menu_icon' => 'dashicons-media-document',
+        'supports' => array(
+          'title',
+          'revisions',
+        )
+    )
+  );
 }
 
 // see https://plugins.trac.wordpress.org/browser/wp-gatsby/trunk/class-wp-gatsby.php
@@ -73,6 +93,7 @@ function trigger_netlify_deploy() {
 function cleanup_admin() {
   remove_menu_page('edit.php');
   remove_menu_page('edit-comments.php');
+  remove_menu_page('edit.php?post_type=page');
 }
 
 // Register custom toolbars

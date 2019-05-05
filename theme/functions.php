@@ -44,26 +44,6 @@ function bruderland_register_post_types() {
     )
   );
 
-  register_post_type('countries',
-    array(
-      'labels' => array(
-        'name' => 'Länder',
-        'singular_name' => 'Land'
-        ),
-        'public' => true,
-        'has_archive' => true,
-        'rewrite' => array(
-          'slug' => 'country'
-        ),
-        'show_in_rest' => true,
-        'menu_icon' => 'dashicons-admin-site',
-        'supports' => array(
-          'title',
-          'revisions',
-        )
-    )
-  );
-
   register_post_type('background',
     array(
       'labels' => array(

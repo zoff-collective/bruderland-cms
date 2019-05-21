@@ -73,7 +73,6 @@ function trigger_netlify_deploy() {
 function cleanup_admin() {
   remove_menu_page('edit.php');
   remove_menu_page('edit-comments.php');
-  remove_menu_page('edit.php?post_type=page');
 }
 
 // Register custom toolbars

@@ -160,6 +160,26 @@ if( function_exists('acf_add_options_page') ) {
   ));
 }
 
+function netlify_states($wp_admin_bar) {
+  $build_status = array(
+    'id' => 'netlify-build',
+    'title' => '<img src="https://api.netlify.com/api/v1/badges/944aedd3-db8f-4b5d-8b52-cc9a0db1dfa0/deploy-status" style="vertical-align: middle; margin-top: -3px;" />',
+    'href' => null,
+  );
+
+  $publish = array(
+    'id'    => 'netlify-publish',
+    'title' => 'Update bruderland.de',
+    'href'  => 'https://api.netlify.com/build_hooks/5cfd6aedd593c4f587f0f1fa',
+    'meta' => array(
+      'onclick' => '(function(e) {e.preventDefault(); if (window.confirm("Bruderland.de wirklich mit den aktuellen Daten updaten?")) { fetch(e.target.href, { method: "POST" }).then(() => window.location.reload())} })(event)'
+    )
+  );
+
+  $wp_admin_bar->add_node($publish);
+  $wp_admin_bar->add_node($build_status);
+}
+
 add_filter('acf/fields/wysiwyg/toolbars' , 'acf_toolbar');
 add_filter('tiny_mce_before_init', 'tinymce_formatselect');
 
@@ -168,6 +188,7 @@ add_action('save_post', 'trigger_netlify_deploy');
 add_action('admin_menu','cleanup_admin');
 add_action('admin_head', 'remove_page_editor_support');
 add_action('admin_bar_menu', 'custom_visit_site_url', 80);
+add_action('admin_bar_menu', 'netlify_states', 100);
 add_filter('post_type_link', 'update_post_links', 10, 2) ;
 add_filter('parse_query', 'exclude_episodes_from_admin');
 
